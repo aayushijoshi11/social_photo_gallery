@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+        <div class="text-center">
+            <h1>login</h1>
+            <h6>please enter email & password!!</h6>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onlogin()">
+            <div class="form-Group">
+              <label for="Email" class="form-label">Email address</label>
+              <input type="Email" class="form-control" id="Email" aria-describedby="emailHelp" formControlName="Email">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="form-Group">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="Password" formControlName="Password">
+            </div>
+            <div class="form-Group">
+              <button type="submit" class="btn btn-primary">login</button>
+            </div>
+          <a style="color: #fff; margin-top: 10px;" routerLink="/registation">New User? click to registation!!</a>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+</div>

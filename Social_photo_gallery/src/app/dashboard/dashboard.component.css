@@ -1,0 +1,31 @@
+.card{
+    
+    background: hsla(205, 46%, 30%,1);
+    background: linear-gradient(90 deg,hsla(205, 46%, 30%,1) 0%, (hsla(205, 46%, 30%,1))100%)
+}
+.card h1,h6{
+    color: #fff;
+}
+label{
+    color: #fff;
+}
+img {
+   
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  .mat-grid-tile{
+    border: 1px solid #eee;
+  }
+  .btn-remove-image{
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    right: 5px;
+    color: white;
+    background-color: red;
+    border-radius: 20%;
+    width: 20px;
+    height: auto;
+    text-align:center ;
+  }

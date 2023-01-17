@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+              <div class="text-center">
+                  <h1>Registration</h1>
+                  <h6>Register yourself!!</h6>
+              </div>
+              <form [formGroup]="RegistationForm" (ngSubmit)="onSubmit()">
+              <div class="form-Group">
+                      <label for="Fullname" class="form-label">Full Name</label>
+                      <input type="text" class="form-control" id="Fullname" formControlName="Fullname">
+                      <div *ngIf="f['Fullname']. touched && f['Fullname'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['Fullname']. errors && f['Fullname'].errors['required']">
+                        </div>Full Name is required</div>
+                    </div>
+                    <div class="form-Group">
+                      <label for="Mobilenumber" class="form-label">Mobile number</label>
+                      <input type="number" class="form-control" id="Mobilenumber" formControlName="Mobilenumber">
+                      <div *ngIf="f['Mobilenumber']. touched && f['Mobilenumber'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['Mobilenumber']. errors && f['Mobilenumber'].errors['required']">
+                        </div>Mobile number is required</div>
+                    </div>
+                    <div class="form-Group">
+                      <label for="Email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" formControlName="Email">
+                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      <div *ngIf="f['Email']. touched && f['Email'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['Email']. errors && f['Email'].errors['required']">
+                        </div>Email is required</div>
+                    </div>
+                  <div class="form-Group">
+                  <label for="Username" class="form-label">Username</label>
+                  <input type="Username" class="form-control" id="Username" formControlName="Username">
+                  <div *ngIf="f['Username']. touched && f['Username'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['Username']. errors && f['Username'].errors['required']">
+                    </div>Username is required</div>
+                  </div>
+                  <div class="form-Group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <div *ngIf="f['password']. touched && f['password'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['password']. errors && f['password'].errors['required']">
+                      </div>password is required</div>
+                  </div> 
+                  <div class="form-Group">
+                    <label for="confirmpassword" class="form-label">Confirm password</label>
+                    <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword">
+                    <div *ngIf="f['confirmpassword']. touched && f['confirmpassword'].invalid" class="alert alert-danger">
+                     <div *ngIf="f['confirmpassword']. errors && f['confirmpassword'].errors['required']">
+                        password is required
+                      </div>
+                      <div *ngIf="f['confirmpassword']. errors && f['confirmpassword'].errors['Confirmvalidator']">
+                        password confirm password must match
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-Group">
+                  <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                 <a style="color: #fff; margin-top: 10px;" routerLink="/login">Already Registered? click to login !!</a>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+    

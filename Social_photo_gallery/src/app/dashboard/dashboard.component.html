@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="card">
+                <form class="row g-3"  [formGroup]="myForm" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <input class="form-control" type="file" id="formFile"(change)="onFileChange($event)">
+                        
+                    </div>
+                    <div class="form-group">
+                    <button type="submit" class="btn btn-primary mb-3">Upload</button>
+                    </div>
+                </form>
+                    <form class="row g-3" >
+
+                    <div class="mt-5">
+                    <div class="row">
+                        <mat-grid-list cols="3" rowHeight="5:5">
+                            <mat-grid-tile *ngFor='let list of product'>
+                                <span class="btn-remove-image">x</span>
+                               <table><tr><td><img [src]='list.url' width="300px" height="300px"/><br></td>
+                               </tr><tr><td style="text-align: center;"> <button type="button" class="btn btn-sm btn-success"><mat-icon>thumb_up</mat-icon></button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <button type="button" class="btn btn-sm btn-danger"><mat-icon>thumb_down</mat-icon></button></td></tr>
+                                </table> 
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        
+                    </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
