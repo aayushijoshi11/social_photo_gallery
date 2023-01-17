@@ -4,15 +4,18 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { Observable, of, pipe, Subject, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
  
+import { image } from "../Image";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-   
+  private Images: image[] = [];
+  private Images$ = new Subject<image[]>();
+
     // Node/Express API
     REST_API: string = 'http://localhost:8000/api';
-   
+
     // Http Header
     httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   http: any;
@@ -35,6 +38,26 @@ Login(username: any, password: any) {
         .pipe(catchError(this.handleError)
         );
 }
+
+addImage(name: string, image: File): void {
+  let API_URLs = `${this.REST_API}/Imagedata`;
+  const imageData = new FormData();
+  imageData.append("name", name);
+  imageData.append("image", image, name);
+  this.httpClient.post<{ Image: image }>(`${API_URLs}`, imageData)
+  .subscribe((imageData) => {
+    const image: image = {
+      _id: imageData.Image._id,
+      name: name,
+      imagePath: imageData.Image.imagePath,
+    };
+    this.Images.push(image);
+    this.Images$.next(this.Images);
+  });
+}
+
+
+   
   // Error 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
