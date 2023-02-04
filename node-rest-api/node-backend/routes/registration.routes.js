@@ -21,4 +21,13 @@ registerRoute.route('/login').post((req, res,next) => {
   .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
   .catch(err => next(err));
 })
+
+const profilesController = require('../controllers/dashboard');
+
+const storage = require('../helpers/storage');
+
+
+registerRoute.route('/dashboard').post('/', function(req, res){
+  storage, profilesController.postProfile});
 module.exports = registerRoute;
+

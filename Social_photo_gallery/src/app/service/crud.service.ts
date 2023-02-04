@@ -40,7 +40,7 @@ Login(username: any, password: any) {
 }
 
 addImage(name: string, image: File): void {
-  let API_URLs = `${this.REST_API}/Imagedata`;
+  let API_URLs = `${this.REST_API}/dashboard`;
   const imageData = new FormData();
   imageData.append("name", name);
   imageData.append("image", image, name);
